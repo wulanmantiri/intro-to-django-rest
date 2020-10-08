@@ -1,5 +1,9 @@
 from django.db import models
 
+class Company(models.Model):
+    name = models.CharField(max_length=100)
+
+
 class Candidate(models.Model):
     name = models.CharField(max_length=255)
     job = models.CharField(max_length=255, default='Student')
@@ -8,6 +12,7 @@ class Candidate(models.Model):
     province = models.CharField(max_length=100, blank=True)
     days_notice = models.IntegerField(default=0)
     description = models.TextField(blank=True)
+    company = models.ForeignKey(to=Company, on_delete=models.CASCADE, null=True, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

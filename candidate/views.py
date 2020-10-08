@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from rest_framework import viewsets
 from .models import Candidate
 from .serializers import CandidateSerializer
